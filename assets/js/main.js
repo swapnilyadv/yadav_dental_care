@@ -1,9 +1,7 @@
 /**
-* Template Name: Medicio - v4.10.0
-* Template URL: https://bootstrapmade.com/medicio-free-bootstrap-theme/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+ * Yadav Dental Care — Main JS
+ * Enhanced with smooth interactions
+ */
 (function() {
   "use strict";
 
@@ -133,7 +131,7 @@
   }, true)
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Scroll with offset on links with a class name .scrollto
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -151,7 +149,7 @@
   }, true)
 
   /**
-   * Scroll with ofset on page load with hash links in the url
+   * Scroll with offset on page load with hash links in the url
    */
   window.addEventListener('load', () => {
     if (window.location.hash) {
@@ -213,7 +211,7 @@
   });
 
   /**
-   * Clients Slider
+   * Gallery Slider
    */
   new Swiper('.gallery-slider', {
     speed: 400,
@@ -268,5 +266,27 @@
    * Initiate Pure Counter 
    */
   new PureCounter();
+
+  /**
+   * WhatsApp floating button — show tooltip on first visit
+   */
+  const whatsappFloat = select('#whatsapp-float');
+  if (whatsappFloat) {
+    const tooltip = whatsappFloat.querySelector('.whatsapp-tooltip');
+    
+    // Show tooltip after 3 seconds on first visit
+    setTimeout(() => {
+      if (tooltip) {
+        tooltip.style.opacity = '1';
+        tooltip.style.transform = 'translateX(0)';
+        
+        // Hide after 4 seconds
+        setTimeout(() => {
+          tooltip.style.opacity = '';
+          tooltip.style.transform = '';
+        }, 4000);
+      }
+    }, 3000);
+  }
 
 })()
